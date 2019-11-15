@@ -72,15 +72,10 @@
   dependencies:
     jest-diff "^24.3.0"
 
-"@types/node@*", "@types/node@^12.12.7":
+"@types/node@*", "@types/node@^12.0.12", "@types/node@^12.12.7":
   version "12.12.7"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.7.tgz#01e4ea724d9e3bd50d90c11fd5980ba317d8fa11"
   integrity sha512-E6Zn0rffhgd130zbCbAr/JdXfXkoOUFAKNs/rF8qnafSJ8KYaA/j3oz7dcwal+lYjLA7xvdd5J4wdYpCTlP8+w==
-
-"@types/node@^12.0.12":
-  version "12.12.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.6.tgz#a47240c10d86a9a57bb0c633f0b2e0aea9ce9253"
-  integrity sha512-FjsYUPzEJdGXjwKqSpE0/9QEh6kzhTAeObA54rn6j3rR4C/mzpI9L0KNfoeASSPMMdxIsoJuCLDWcM/rVjIsSA==
 
 "@types/prop-types@*":
   version "15.7.3"
@@ -476,9 +471,9 @@ electron-rebuild@^1.8.6:
     yargs "^13.2.4"
 
 electron@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-7.1.0.tgz#29ca01958ddbc6fb5ec6950279efec4f93045384"
-  integrity sha512-ITWtgmiXvyzdz22g/ksBORay1aBrt+JwFfL4PWi1SoSk9yWOllIoa8smneQ121DCgQLLhfmT3aCF1qQhxEpCIQ==
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-7.1.1.tgz#98be17d850e64689a09ab6dd1e437b36307f2fcf"
+  integrity sha512-NJPv4SuMJlRUtXBd/Ey9XKSLOZ4+hxsOrHHPXwrBQNNdeZesoSrTMgPymee/FwMRtrSt0Pz8NccEZUu/pxmbhQ==
   dependencies:
     "@electron/get" "^1.0.1"
     "@types/node" "^12.0.12"
