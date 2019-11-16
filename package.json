@@ -1,7 +1,7 @@
 {
   "name": "electron-quick-start-typescript",
   "version": "1.0.0",
-  "description": "A minimal Electron application written with Typescript, powered by React & Visual Studio Code debug enabled",
+  "description": "Dev tool for smartcard/pos developers",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
@@ -21,6 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^7.1.1",
+    "electron-rebuild": "^1.8.6",
     "tslint": "^5.19.0",
     "typescript": "^3.6.0"
   },
@@ -28,6 +29,7 @@
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "tscard": "^0.9.1"
   }
 }
