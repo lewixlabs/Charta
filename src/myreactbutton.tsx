@@ -3,12 +3,12 @@ import { testTsCard } from "./funny";
 
 export class MyReactButton extends React.Component {
 
-    playTsCard() {
-        console.log("wow!!!!")
-        testTsCard()
+    public playTsCard() {
+        console.log("wow!!!!");
+        testTsCard();
     }
 
-    render() {
+    public render() {
         return (
             <div>
                 <button onClick={this.playTsCard}>CLICK ME!!</button>
