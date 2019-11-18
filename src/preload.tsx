@@ -1,9 +1,9 @@
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
 
-import ReactDOM = require('react-dom');
-import React = require('react');
-import { MyReactButton } from './myreactbutton';
+import React = require("react");
+import ReactDOM = require("react-dom");
+import { Charta } from "./react-engine/Charta";
 
 window.addEventListener("DOMContentLoaded", () => {
   const replaceText = (selector: string, text: string) => {
@@ -17,5 +17,5 @@ window.addEventListener("DOMContentLoaded", () => {
     replaceText(`${type}-version`, (process.versions as any)[type]);
   }
 
-  ReactDOM.render(<MyReactButton/>, document.getElementById('idReactMain'));
+  ReactDOM.render(<Charta/>, document.getElementById("idReactMain"));
 });
