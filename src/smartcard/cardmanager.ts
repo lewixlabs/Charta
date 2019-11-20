@@ -1,5 +1,6 @@
 import { TsCard } from "tscard"
 import Reader from "tscard/reader";
+import Utilities from "tscard/utilities";
 
 export interface ICardInfo {
     atr: string;
@@ -18,11 +19,11 @@ export class CardManager {
 
     public static async openCardReader(): Promise<ICardManagerStatus> {
         try {
-            let result: ICardManagerStatus = {
-             isActive: false,
-             readerName: "",
-             isCardInserted: false,
+            const result: ICardManagerStatus = {
              cardInfo: null,
+             isActive: false,
+             isCardInserted: false,
+             readerName: "",
             };
 
             const reader: Reader  = await TsCard.instance.detectReader(15000);
@@ -36,7 +37,7 @@ export class CardManager {
             result.isCardInserted = cardInserted;
             if (cardInserted){
                 result.cardInfo = {
-                    atr: card.atr.toString(),
+                    atr: Utilities.bytesToHexString(card.atr),
                     cardType: card.isMemoryCard ? "Memory Card" : "Chip Card",
                 };
             }

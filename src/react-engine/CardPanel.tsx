@@ -12,12 +12,18 @@ export class CardPanel extends React.Component<ICardManagerStatus, ICardInfo> {
         };
     }
 
-    // public componentDidUpdate() {
-    //     this.setState({
-    //         atr: this.props.isCardInserted ? this.props.cardInfo.atr : "",
-    //         cardType: this.props.isCardInserted ? this.props.cardInfo.cardType : "",
-    //     });
-    // }
+    // https://it.reactjs.org/docs/react-component.html#componentdidupdate
+    // tslint:disable-next-line: max-line-length
+    // https://developmentarc.gitbooks.io/react-indepth/content/life_cycle/update/postrender_with_componentdidupdate.html
+    public componentDidUpdate(prevProps: ICardManagerStatus, prevState: {}) {
+        // tslint:disable-next-line: max-line-length
+        if (prevProps !== this.props) {
+            this.setState({
+                atr: this.props.isCardInserted ? this.props.cardInfo.atr : "",
+                cardType: this.props.isCardInserted ? this.props.cardInfo.cardType : "",
+            });
+        }
+    }
 
     public render() {
         return (

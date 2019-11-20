@@ -27,7 +27,7 @@ export class Charta extends React.Component<IProps, ICardManagerStatus> {
         return (
             <div>
                 <ReaderPanel name={this.state.readerName}/>
-                <CardPanel isCardInserted={this.state.isCardInserted} cardInfo={this.state.cardInfo} isActive={this.state.isActive} readerName={this.state.readerName}/>
+                <CardPanel {...this.state}/>
             </div>
         );
     }
