@@ -1,5 +1,5 @@
 import React = require("react");
-import { CardManager, ICardManagerStatus } from "../smartcard/cardmanager";
+import { CardManager, ICardManagerStatus, CardEvents, ICardInfo } from "../smartcard/cardmanager";
 import { CardPanel } from "./CardPanel";
 import { ReaderPanel } from "./ReaderPanel";
 
@@ -37,5 +37,14 @@ export class Charta extends React.Component<IProps, ICardManagerStatus> {
         console.log(readerStatus);
 
         this.setState(readerStatus);
+
+        CardManager.listenCardEvents((cEvent: CardEvents, cInfo: ICardInfo) => {
+            this.setState({
+                cardInfo: cInfo,
+                isActive: this.state.isActive,
+                isCardInserted: cEvent === CardEvents.CardInserted ? true : false,
+                readerName: this.state.readerName,
+            });
+        });
     }
 }
