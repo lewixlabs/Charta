@@ -2,6 +2,7 @@ import React = require("react");
 import { CardManager, ICardManagerStatus, CardEvents, ICardInfo } from "../smartcard/cardmanager";
 import { CardPanel } from "./CardPanel";
 import { ReaderPanel } from "./ReaderPanel";
+import { ApduForm } from "./ApduForm";
 
 interface IProps {
 }
@@ -25,16 +26,17 @@ export class Charta extends React.Component<IProps, ICardManagerStatus> {
 
     public render() {
         return (
-            <div>
+            <div className="window">
                 <ReaderPanel name={this.state.readerName}/>
                 <CardPanel {...this.state}/>
+                <ApduForm/>
             </div>
         );
     }
 
     private async startCardOps() {
         const readerStatus: ICardManagerStatus = await CardManager.openCardReader();
-        console.log(readerStatus);
+        // console.log(readerStatus);
 
         this.setState(readerStatus);
 

@@ -12,9 +12,9 @@ export class CardPanel extends React.Component<ICardManagerStatus, ICardInfo> {
         };
     }
 
-    // https://it.reactjs.org/docs/react-component.html#componentdidupdate
     // tslint:disable-next-line: max-line-length
     // https://developmentarc.gitbooks.io/react-indepth/content/life_cycle/update/postrender_with_componentdidupdate.html
+    // https://it.reactjs.org/docs/react-component.html#componentdidupdate
     public componentDidUpdate(prevProps: ICardManagerStatus, prevState: {}) {
         // tslint:disable-next-line: max-line-length
         if (prevProps !== this.props) {
@@ -28,8 +28,12 @@ export class CardPanel extends React.Component<ICardManagerStatus, ICardInfo> {
     public render() {
         return (
             <div>
-                <h2>Atr: {this.state.atr}</h2>
-                <h2>Card Type: {this.state.cardType}</h2>
+                <div className="form-group">
+                    <label>Atr: {this.state.atr}</label>
+                </div>
+                <div className="form-group">
+                    <label>Card Type: {this.state.cardType}</label>
+                </div>
             </div>
         );
     }
