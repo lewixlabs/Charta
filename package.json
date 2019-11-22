@@ -23,7 +23,7 @@
     "electron": "^7.1.2",
     "electron-rebuild": "^1.8.8",
     "tslint": "^5.19.0",
-    "typescript": "^3.6.0"
+    "typescript": "^3.7.2"
   },
   "dependencies": {
     "@types/react": "^16.9.11",
