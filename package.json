@@ -22,7 +22,7 @@
   "devDependencies": {
     "electron": "^7.1.2",
     "electron-rebuild": "^1.8.8",
-    "tslint": "^5.19.0",
+    "tslint": "^5.20.1",
     "typescript": "^3.6.0"
   },
   "dependencies": {
