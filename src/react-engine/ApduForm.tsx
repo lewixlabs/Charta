@@ -13,16 +13,14 @@ class ApduGrid extends React.Component {
     public render() {
         return (
             <div>
-                // header
                 <div>
-                    <ApduField/> // CLA
-                    <ApduField/> // INS
-                    <ApduField/> // P1
-                    <ApduField/> // P2
-                    <ApduField/> // P2
+                    <ApduField/>
+                    <ApduField/>
+                    <ApduField/>
+                    <ApduField/>
+                    <ApduField/>
                 </div>
 
-                // body
                 <div>
                     <ApduField/> // Lc
                     <ApduField length={1024}/> // Data In

@@ -26,15 +26,10 @@ export class Charta extends React.Component<IProps, ICardManagerStatus> {
 
     public render() {
         return (
-            <div className="window">
-                <div className="window-content">
-                    <div className="padded-more">
-                            <h2 className="nav-group-title">Reader Info</h2>
-                            <ReaderPanel name={this.state.readerName}/>
-                            <CardPanel {...this.state}/>
-                            <ApduForm/>
-                    </div>
-                </div>
+            <div>
+                <ReaderPanel name={this.state.readerName} />
+                <CardPanel {...this.state} />
+                <ApduForm />
             </div>
         );
     }

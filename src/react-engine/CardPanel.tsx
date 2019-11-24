@@ -1,5 +1,6 @@
 import React from "react";
 import { ICardInfo, ICardManagerStatus } from "../smartcard/cardmanager";
+import { Box, Text } from "react-desktop/macos";
 
 export class CardPanel extends React.Component<ICardManagerStatus, ICardInfo> {
 
@@ -28,12 +29,12 @@ export class CardPanel extends React.Component<ICardManagerStatus, ICardInfo> {
     public render() {
         return (
             <div>
-                <div className="form-group">
-                    <label>Atr: {this.state.atr}</label>
-                </div>
-                <div className="form-group">
-                    <label>Card Type: {this.state.cardType}</label>
-                </div>
+                <Box label="Atr" padding="10px 30px">
+                    <Text>{this.state.cardType}</Text>
+                </Box>
+                <Box label="Card Type" padding="10px 30px">
+                    <Text>{this.state.atr}</Text>
+                </Box>
             </div>
         );
     }
