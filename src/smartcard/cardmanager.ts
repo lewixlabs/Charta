@@ -30,18 +30,18 @@ export class CardManager {
              cardInfo: null,
              isActive: this.cardManagerActive,
              isCardInserted: false,
-             readerName: "",
+             readerName: "No Reader Detected",
             };
 
-            const reader: Reader  = await TsCard.instance.detectReader(5000);
+            this.actualReader = await TsCard.instance.detectReader(5000);
 
-            if (reader == null || reader.name === "") {
+            if (this.actualReader == null || this.actualReader.name === "") {
                 return result;
             }
             this.cardManagerActive = true;
 
             const [cardInserted, card] = await TsCard.instance.insertCard(3000);
-            result.readerName = reader.name;
+            result.readerName = this.actualReader.name;
             result.isCardInserted = cardInserted;
             if (cardInserted){
                 result.cardInfo = {
@@ -57,7 +57,7 @@ export class CardManager {
                 cardInfo: null,
                 isActive: false,
                 isCardInserted: false,
-                readerName: "",
+                readerName: "No Reader Detected",
             };
         }
     }
@@ -94,5 +94,6 @@ export class CardManager {
     }
 
     private static cardManagerActive: boolean = false;
+    private static actualReader: Reader = null;
 }
 
