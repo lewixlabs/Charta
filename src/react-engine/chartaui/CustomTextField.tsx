@@ -7,19 +7,22 @@ const textFieldStyle: CSS.Properties = {
 };
 
 interface ITextFieldProps {
-    label?: string;
+    label: string;
     defaulText?: string;
+    charsLength: number;
+    maxLength?: number;
 }
 
 export const CustomTextField: React.FC<ITextFieldProps> = (props: ITextFieldProps) => {
     return (
         <div style={textFieldStyle}>
             <TextInput
-                width="45"
+                width={props.charsLength * 15}
+                // width={props.stretched !== undefined && props.stretched ? "" : "45"}
                 size="15"
-                maxLength="4"
+                maxLength={props.maxLength === undefined ? 4 : props.maxLength}
                 label={props.label}
-                rounded="4"
+                rounded="5"
                 // placeholder="My Input"
                 defaultValue={props.defaulText}
                 // onChange={this.handleChange}

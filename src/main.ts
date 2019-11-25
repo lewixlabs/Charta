@@ -7,12 +7,14 @@ let mainWindow: Electron.BrowserWindow;
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    height: 600,
+    fullscreenable: false,
+    height: 450,
     // titleBarStyle: "hidden",
+    resizable: false,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
-    width: 800,
+    width: 650,
   });
 
   // and load the index.html of the app.

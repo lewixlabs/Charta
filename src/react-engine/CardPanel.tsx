@@ -1,6 +1,6 @@
 import React from "react";
 import { ICardInfo, ICardManagerStatus } from "../smartcard/cardmanager";
-import { Box, Text } from "react-desktop/macos";
+import { CustomBox } from "./chartaui/CustomBox";
 
 export class CardPanel extends React.Component<ICardManagerStatus, ICardInfo> {
 
@@ -29,12 +29,8 @@ export class CardPanel extends React.Component<ICardManagerStatus, ICardInfo> {
     public render() {
         return (
             <div>
-                <Box label="Atr" padding="10px 30px">
-                    <Text>{this.state.cardType}</Text>
-                </Box>
-                <Box label="Card Type" padding="10px 30px">
-                    <Text>{this.state.atr}</Text>
-                </Box>
+                <CustomBox title="Atr" text={this.state.atr}/>
+                <CustomBox title="Card Type" text={this.state.cardType}/>
             </div>
         );
     }

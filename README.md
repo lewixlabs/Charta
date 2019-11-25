@@ -1,4 +1,4 @@
 # Charta
 ## Dev tool for smartcard/pos developers
 
-![charta](screenshots/main.png)
+![charta](screenshots/main_emv.png)
