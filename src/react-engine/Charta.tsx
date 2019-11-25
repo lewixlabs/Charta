@@ -1,21 +1,18 @@
 import React = require("react");
-import { CardManager, ICardManagerStatus, CardEvents, ICardInfo } from "../smartcard/cardmanager";
+import { Text, TitleBar, Window } from "react-desktop/macos";
+import { CardManager, ICardInfo, ICardManagerStatus, CardEvents } from "../smartcard/cardmanager";
+import { ApduForm } from "./ApduForm";
 import { CardPanel } from "./CardPanel";
 import { ReaderPanel } from "./ReaderPanel";
-import { ApduForm } from "./ApduForm";
 
-interface IProps {
-}
+export class Charta extends React.Component<{}, ICardManagerStatus> {
 
-export class Charta extends React.Component<IProps, ICardManagerStatus> {
-
-    constructor(props: IProps) {
+    constructor(props: {}) {
         super(props);
 
         this.state = {
             isActive: false,
             isCardInserted: false,
-            //cardInfo: null,
             readerName: "Reader detecting...",
         };
     }
@@ -31,6 +28,7 @@ export class Charta extends React.Component<IProps, ICardManagerStatus> {
                 <CardPanel {...this.state} />
                 <ApduForm />
             </div>
+
         );
     }
 

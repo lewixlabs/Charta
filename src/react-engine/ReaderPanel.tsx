@@ -1,5 +1,5 @@
 import React = require("react");
-import { Box, Text } from "react-desktop/macos";
+import { CustomBox } from "./chartaui/CustomBox";
 
 interface IReaderProps {
     name: string;
@@ -9,9 +9,7 @@ export class ReaderPanel extends React.Component<IReaderProps> {
 
     public render() {
         return (
-                <Box label="Reader Model" padding="10px 30px">
-                    <Text>{this.props.name}</Text>
-                </Box>
+                <CustomBox title="Reader Model" text={this.props.name}/>
         );
     }
 }

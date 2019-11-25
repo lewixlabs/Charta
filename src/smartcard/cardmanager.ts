@@ -33,7 +33,7 @@ export class CardManager {
              readerName: "",
             };
 
-            const reader: Reader  = await TsCard.instance.detectReader(15000);
+            const reader: Reader  = await TsCard.instance.detectReader(5000);
 
             if (reader == null || reader.name === "") {
                 return result;

@@ -8,6 +8,7 @@ function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     height: 600,
+    // titleBarStyle: "hidden",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
@@ -18,7 +19,7 @@ function createWindow() {
   mainWindow.loadFile(path.join(__dirname, "../index.html"));
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on("closed", () => {
@@ -28,8 +29,6 @@ function createWindow() {
     mainWindow = null;
   });
 }
-
-require("electron-reload")(__dirname);
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
