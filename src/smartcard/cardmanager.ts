@@ -1,6 +1,6 @@
 import { TsCard } from "tscard";
 import SmartCard, { CardEvent } from "tscard/cards/smartcard";
-import Reader from "tscard/reader";
+import Reader, { Apdu, ApduResponse } from "tscard/reader";
 import Utilities from "tscard/utilities";
 
 
@@ -93,7 +93,18 @@ export class CardManager {
         }
     }
 
+    public static async sendApdu(apdu: Apdu, dataIn: number[]): Promise<ApduResponse> {
+        try {
+            return await this.actualReader.sendApdu(this.actualCard, apdu, dataIn);
+        } catch (e)
+        {
+            console.log(e);
+            return null;
+        }
+    }
+
     private static cardManagerActive: boolean = false;
     private static actualReader: Reader = null;
+    private static actualCard: SmartCard = null;
 }
 

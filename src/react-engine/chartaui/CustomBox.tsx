@@ -10,7 +10,7 @@ export const CustomBox: React.FC<IBoxProps> = (props: IBoxProps) => {
     return (
         <div>
             <Box label={props.title} padding="10px 10px">
-                <Text>{props.text === undefined ? "" : props.text}</Text>
+                <Text>{props.text === undefined || props.text === null ? "" : props.text}</Text>
             </Box>
         </div>
     );

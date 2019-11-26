@@ -6,7 +6,7 @@
     "build": "rm -rf dist && tsc",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "npm run build && electron ./dist/main.js"
+    "start": "yarn run build && electron ./dist/main.js"
   },
   "repository": "https://github.com/electron/ert-app",
   "keywords": [

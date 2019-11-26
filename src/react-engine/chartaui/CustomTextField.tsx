@@ -8,9 +8,11 @@ const textFieldStyle: CSS.Properties = {
 
 interface ITextFieldProps {
     label: string;
-    defaulText?: string;
+    text?: string;
     charsLength: number;
     maxLength?: number;
+    onChangeEvent: (event: React.FormEvent<HTMLInputElement>) => void;
+    fieldName?: string;
 }
 
 export const CustomTextField: React.FC<ITextFieldProps> = (props: ITextFieldProps) => {
@@ -18,16 +20,17 @@ export const CustomTextField: React.FC<ITextFieldProps> = (props: ITextFieldProp
         <div style={textFieldStyle}>
             <TextInput
                 width={props.charsLength * 15}
-                // width={props.stretched !== undefined && props.stretched ? "" : "45"}
                 size="15"
                 maxLength={props.maxLength === undefined ? 4 : props.maxLength}
                 label={props.label}
                 rounded="5"
                 // placeholder="My Input"
-                defaultValue={props.defaulText}
+                value={props.text !== undefined ? props.text : ""}
                 // onChange={this.handleChange}
                 marginLeft="10"
                 marginRight="10"
+                onChange={props.onChangeEvent}
+                name={props.fieldName}
             />
         </div>
 
