@@ -1,6 +1,5 @@
 import React = require("react");
-import { Text, TitleBar, Window } from "react-desktop/macos";
-import { CardManager, ICardInfo, ICardManagerStatus, CardEvents } from "../smartcard/cardmanager";
+import { CardEvents, CardManager, ICardInfo, ICardManagerStatus } from "../smartcard/cardmanager";
 import { ApduForm } from "./ApduForm";
 import { CardPanel } from "./CardPanel";
 import { ReaderPanel } from "./ReaderPanel";

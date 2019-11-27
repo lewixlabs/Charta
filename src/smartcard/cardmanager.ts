@@ -44,6 +44,7 @@ export class CardManager {
             result.readerName = this.actualReader.name;
             result.isCardInserted = cardInserted;
             if (cardInserted){
+                this.actualCard = card;
                 result.cardInfo = {
                     atr: Utilities.bytesToHexString(card.atr),
                     cardType: card.isMemoryCard ? "Memory Card" : "Chip Card",
@@ -67,6 +68,7 @@ export class CardManager {
 
             const atrDetected: string = c !== null ? Utilities.bytesToHexString(c.atr) : "";
             const isMemoryCardDetected: boolean = c !== null ? c.isMemoryCard : false;
+            this.actualCard = c;
 
             // tslint:disable-next-line: max-line-length
             f(e === CardEvent.Inserted ? CardEvents.CardInserted : CardEvents.CardRemoved, { atr: atrDetected, cardType: isMemoryCardDetected ? "Memory Card" : "Chip Card"});
@@ -93,13 +95,11 @@ export class CardManager {
         }
     }
 
-    public static async sendApdu(apdu: Apdu, dataIn: number[]): Promise<ApduResponse> {
+    public static async sendApdu(apdu: Apdu, dataIn: number[]): Promise<[ApduResponse, string]> {
         try {
-            return await this.actualReader.sendApdu(this.actualCard, apdu, dataIn);
-        } catch (e)
-        {
-            console.log(e);
-            return null;
+            return [await this.actualReader.sendApdu(this.actualCard, apdu, dataIn), ""];
+        } catch (e) {
+            return [null, e];
         }
     }
 

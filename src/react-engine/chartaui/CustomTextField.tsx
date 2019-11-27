@@ -11,7 +11,7 @@ interface ITextFieldProps {
     text?: string;
     charsLength: number;
     maxLength?: number;
-    onChangeEvent: (event: React.FormEvent<HTMLInputElement>) => void;
+    onChangeEvent?: (event: React.FormEvent<HTMLInputElement>) => void;
     fieldName?: string;
 }
 
