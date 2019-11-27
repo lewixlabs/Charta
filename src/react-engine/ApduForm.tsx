@@ -83,8 +83,8 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                     <CustomButton text="Send Apdu" clickEvent={this.sendApdu} />
                 </div>
                 <div style={marginTopDivStyle}>
-                    <CustomTextField label="SW" text={this.state.apduResult.sw} charsLength={4} fieldName="SW"/>
-                    <CustomTextField label="Data Out" text={this.state.apduResult.dataOut} charsLength={30} fieldName="dataOut"/>
+                    <CustomTextField label="SW" text={this.state.apduResult.sw} charsLength={4} fieldName="SW" readOnly={true}/>
+                    <CustomTextField label="Data Out" text={this.state.apduResult.dataOut} charsLength={30} fieldName="dataOut" readOnly={true}/>
                 </div>
             </div>
         );

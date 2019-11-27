@@ -13,6 +13,7 @@ interface ITextFieldProps {
     maxLength?: number;
     onChangeEvent?: (event: React.FormEvent<HTMLInputElement>) => void;
     fieldName?: string;
+    readOnly?: boolean;
 }
 
 export const CustomTextField: React.FC<ITextFieldProps> = (props: ITextFieldProps) => {
@@ -31,6 +32,7 @@ export const CustomTextField: React.FC<ITextFieldProps> = (props: ITextFieldProp
                 marginRight="10"
                 onChange={props.onChangeEvent}
                 name={props.fieldName}
+                readOnly={props.readOnly === undefined ? false : true}
             />
         </div>
 
