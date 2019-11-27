@@ -26,7 +26,7 @@ export class Charta extends React.Component<{}, ICardManagerStatus> {
             <div>
                 <ReaderPanel name={this.state.readerName} />
                 <CardPanel {...this.state} />
-                <ApduForm />
+                <ApduForm isVisible={this.state.isCardInserted}/>
             </div>
 
         );

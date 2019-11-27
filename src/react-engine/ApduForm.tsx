@@ -4,20 +4,31 @@ import { Apdu } from "tscard/reader";
 import { CustomBox } from "./chartaui/CustomBox";
 import { CustomButton } from "./chartaui/CustomButton";
 import { CustomTextField } from "./chartaui/CustomTextField";
-import { string } from "prop-types";
 
-const divStyle: CSS.Properties = {
+const marginTopDivStyle: CSS.Properties = {
     marginTop: "20px",
 };
 
-export class ApduForm extends React.Component {
+interface IApduFormProps {
+    isVisible: boolean;
+}
+
+export class ApduForm extends React.Component<IApduFormProps, {}> {
 
     public render() {
-        return <ApduGrid />;
+        return (
+            <div style={marginTopDivStyle} hidden={!this.props.isVisible}>
+                <ApduGrid />
+                <div style={marginTopDivStyle}>
+                    <CustomBox title="SW / Data Out" />
+                </div>
+            </div>
+        );
     }
 }
 
-interface IApduGrid {
+interface IApduGridState {
+
     cla: string;
     ins: string;
     p1: string;
@@ -28,20 +39,20 @@ interface IApduGrid {
 }
 
 // tslint:disable-next-line: max-classes-per-file
-class ApduGrid extends React.Component<{}, IApduGrid> {
+class ApduGrid extends React.Component<{}, IApduGridState> {
 
     constructor(props: {}) {
         super(props);
 
         this.state = {
-            cla: "0x00",
-            ins: "0xA4",
-            p1: "0x00",
-            p2: "0x00",
+            cla: "00",
+            ins: "A4",
+            p1: "00",
+            p2: "00",
             // tslint:disable-next-line: object-literal-sort-keys
-            lc: "0x02",
-            le: "0x00",
-            dataIn: "0x3F00",
+            lc: "02",
+            le: "00",
+            dataIn: "3F00",
         };
 
         this.onChangeApduField = this.onChangeApduField.bind(this);
@@ -50,7 +61,7 @@ class ApduGrid extends React.Component<{}, IApduGrid> {
 
     public render() {
         return (
-            <div style={divStyle}>
+            <div>
                 <div>
                     <CustomTextField label="Cla" text={this.state.cla} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="cla" />
                     <CustomTextField label="Ins" text={this.state.ins} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="ins" />
@@ -64,9 +75,6 @@ class ApduGrid extends React.Component<{}, IApduGrid> {
                 </div>
                 <div>
                     <CustomButton text="Send Apdu" clickEvent={this.sendApdu} />
-                </div>
-                <div style={divStyle}>
-                    <CustomBox title="SW / Data Out" />
                 </div>
             </div>
         );
