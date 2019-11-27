@@ -3,7 +3,6 @@ import process from "process";
 import React from "react";
 import Utilities from "tscard/utilities";
 import { CardManager } from "../smartcard/cardmanager";
-import { CustomBox } from "./chartaui/CustomBox";
 import { CustomButton } from "./chartaui/CustomButton";
 import { CustomTextField } from "./chartaui/CustomTextField";
 
