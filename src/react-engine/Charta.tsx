@@ -38,13 +38,15 @@ export class Charta extends React.Component<{}, ICardManagerStatus> {
 
         this.setState(readerStatus);
 
-        CardManager.listenCardEvents((cEvent: CardEvents, cInfo: ICardInfo) => {
-            this.setState({
-                cardInfo: cInfo,
-                isActive: this.state.isActive,
-                isCardInserted: cEvent === CardEvents.CardInserted ? true : false,
-                readerName: this.state.readerName,
+        if (readerStatus.isActive) {
+            CardManager.listenCardEvents((cEvent: CardEvents, cInfo: ICardInfo) => {
+                this.setState({
+                    cardInfo: cInfo,
+                    isActive: this.state.isActive,
+                    isCardInserted: cEvent === CardEvents.CardInserted ? true : false,
+                    readerName: this.state.readerName,
+                });
             });
-        });
+        }
     }
 }
