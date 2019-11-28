@@ -149,9 +149,9 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
         if (apduResult === null && err) {
             // tslint:disable-next-line: no-empty
             // tslint:disable-next-line: max-line-length
-            if (process.platform === "darwin" && (err.toLowerCase().includes("insufficient buffer") || err.toLowerCase().includes("0x80100008"))) {
+            if (err.includes("0x80100008")) {
                 /*
-                 * macOS workaround
+                 * macOS workaround (but found in windows too)
                  * https://ludovicrousseau.blogspot.com/2017/03/macos-sierra-bug-scardtransmit-silently.html 
                 */
                 [apduResult, err] = await CardManager.sendApdu(
