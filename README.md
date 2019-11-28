@@ -1,6 +1,6 @@
 # Charta 💳
 ## Dev tool for smartcard/pos developers
-### Charta is a cross platform app which helps developers/tester interact with chip cards and send Apdus
+### Charta is a cross platform app which helps developers/testers to interact with chip cards and send Apdus
 
 Smartcards supported:
 - ISO 7816 (emv cards, Italian CRS/CNS cards, etc)
