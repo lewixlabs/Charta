@@ -1,4 +1,4 @@
-# Charta
+# Charta 💳
 ## Dev tool for smartcard/pos developers
 ### Charta is a cross platform app which helps developers/tester interact with chip cards and send Apdus
 
