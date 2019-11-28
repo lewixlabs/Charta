@@ -1,5 +1,4 @@
 import CSS from "csstype";
-import process from "process";
 import React from "react";
 import Utilities from "tscard/utilities";
 import { CardManager } from "../smartcard/cardmanager";
@@ -75,15 +74,15 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                 </div>
                 <div>
                     <CustomTextField label="Lc" text={this.state.apduToSend.lc} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="Lc" />
-                    <CustomTextField label="Data In" text={this.state.apduToSend.dataIn} charsLength={30} onChangeEvent={this.onChangeApduField} fieldName="dataIn" />
+                    <CustomTextField label="Data In" text={this.state.apduToSend.dataIn} charsLength={30} maxLength={250} onChangeEvent={this.onChangeApduField} fieldName="dataIn" />
                     <CustomTextField label="Le" text={this.state.apduToSend.le} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="Le" />
                 </div>
                 <div>
                     <CustomButton text="Send Apdu" clickEvent={this.sendApdu} />
                 </div>
                 <div style={marginTopDivStyle}>
-                    <CustomTextField label="SW" text={this.state.apduResult.sw} charsLength={4} fieldName="SW" readOnly={true}/>
-                    <CustomTextField label="Data Out" text={this.state.apduResult.dataOut} charsLength={30} fieldName="dataOut" readOnly={true}/>
+                    <CustomTextField label="SW" text={this.state.apduResult.sw} charsLength={4} fieldName="SW" readOnly={true} />
+                    <CustomTextField label="Data Out" text={this.state.apduResult.dataOut} charsLength={30} fieldName="dataOut" readOnly={true} />
                 </div>
             </div>
         );
@@ -91,28 +90,37 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
 
     private onChangeApduField(event: React.FormEvent<HTMLInputElement>) {
 
+        const checkValidHexDigits = (previousStr: string, newStr: string): string => {
+
+            if (!newStr)
+                return "";
+
+            const isNaNResult: boolean = isNaN(Number(`0x${newStr}`));
+            return isNaNResult ? previousStr.toUpperCase() : newStr.toUpperCase();
+        };
+
         const apduToUpdate: IApduFormState = { ...this.state };
         switch (event.currentTarget.name) {
             case "cla":
-                apduToUpdate.apduToSend.cla = event.currentTarget.value;
+                apduToUpdate.apduToSend.cla = checkValidHexDigits(apduToUpdate.apduToSend.cla, event.currentTarget.value);
                 break;
             case "ins":
-                apduToUpdate.apduToSend.ins = event.currentTarget.value;
+                apduToUpdate.apduToSend.ins = checkValidHexDigits(apduToUpdate.apduToSend.ins, event.currentTarget.value);
                 break;
             case "P1":
-                apduToUpdate.apduToSend.p1 = event.currentTarget.value;
+                apduToUpdate.apduToSend.p1 = checkValidHexDigits(apduToUpdate.apduToSend.p1, event.currentTarget.value);
                 break;
             case "P2":
-                apduToUpdate.apduToSend.p2 = event.currentTarget.value;
+                apduToUpdate.apduToSend.p2 = checkValidHexDigits(apduToUpdate.apduToSend.p2, event.currentTarget.value);
                 break;
             case "Lc":
-                apduToUpdate.apduToSend.lc = event.currentTarget.value;
+                apduToUpdate.apduToSend.lc = checkValidHexDigits(apduToUpdate.apduToSend.lc, event.currentTarget.value);
                 break;
             case "Le":
-                apduToUpdate.apduToSend.le = event.currentTarget.value;
+                apduToUpdate.apduToSend.le = checkValidHexDigits(apduToUpdate.apduToSend.le, event.currentTarget.value);
                 break;
             case "dataIn":
-                apduToUpdate.apduToSend.dataIn = event.currentTarget.value;
+                apduToUpdate.apduToSend.dataIn = checkValidHexDigits(apduToUpdate.apduToSend.dataIn, event.currentTarget.value);
                 break;
         }
         this.setState(apduToUpdate);

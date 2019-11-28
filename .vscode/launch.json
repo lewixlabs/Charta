@@ -6,6 +6,7 @@
             "request": "launch",
             "name": "Electron: Main",
             "protocol": "inspector",
+            "preLaunchTask": "npm-build",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "runtimeArgs": [
                 "--remote-debugging-port=9223",

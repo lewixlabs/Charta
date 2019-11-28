@@ -6,7 +6,16 @@
     "build": "rm -rf dist && tsc",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "yarn run build && electron ./dist/main.js"
+    "start": "yarn run build && electron ./dist/main.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "dev.llabs.charta",
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    }
   },
   "repository": "https://github.com/electron/ert-app",
   "keywords": [
@@ -21,6 +30,7 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^7.1.2",
+    "electron-builder": "^21.2.0",
     "electron-rebuild": "^1.8.8",
     "react-desktop": "^0.3.9",
     "tslint": "^5.19.0",

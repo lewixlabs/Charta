@@ -10,7 +10,7 @@
     "paths": {
       "*": ["node_modules/*"]
     },
-    "jsx": "react",
+    "jsx": "react"
   },
   "include": [
     "src/**/*"
