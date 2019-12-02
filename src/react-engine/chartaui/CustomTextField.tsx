@@ -12,6 +12,7 @@ interface ITextFieldProps {
     charsLength: number;
     maxLength?: number;
     onChangeEvent?: (event: React.FormEvent<HTMLInputElement>) => void;
+    onBlurEvent?: (event: React.FormEvent<HTMLInputElement>) => void;
     fieldName?: string;
     readOnly?: boolean;
 }
@@ -33,6 +34,7 @@ export const CustomTextField: React.FC<ITextFieldProps> = (props: ITextFieldProp
                 onChange={props.onChangeEvent}
                 name={props.fieldName}
                 readOnly={props.readOnly === undefined ? false : true}
+                onBlur={props.onBlurEvent}
             />
         </div>
 

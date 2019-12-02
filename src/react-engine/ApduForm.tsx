@@ -60,6 +60,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
         };
 
         this.onChangeApduField = this.onChangeApduField.bind(this);
+        this.onBlurApduField = this.onBlurApduField.bind(this);
         this.sendApdu = this.sendApdu.bind(this);
     }
 
@@ -67,15 +68,15 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
         return (
             <div style={marginTopDivStyle} hidden={!this.props.isVisible}>
                 <div>
-                    <CustomTextField label="Cla" text={this.state.apduToSend.cla} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="cla" />
-                    <CustomTextField label="Ins" text={this.state.apduToSend.ins} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="ins" />
-                    <CustomTextField label="P1" text={this.state.apduToSend.p1} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="P1" />
-                    <CustomTextField label="P2" text={this.state.apduToSend.p2} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="P2" />
+                    <CustomTextField label="Cla" text={this.state.apduToSend.cla} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="cla" onBlurEvent={this.onBlurApduField}/>
+                    <CustomTextField label="Ins" text={this.state.apduToSend.ins} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="ins" onBlurEvent={this.onBlurApduField}/>
+                    <CustomTextField label="P1" text={this.state.apduToSend.p1} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="P1" onBlurEvent={this.onBlurApduField}/>
+                    <CustomTextField label="P2" text={this.state.apduToSend.p2} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="P2" onBlurEvent={this.onBlurApduField}/>
                 </div>
                 <div>
-                    <CustomTextField label="Lc" text={this.state.apduToSend.lc} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="Lc" />
-                    <CustomTextField label="Data In" text={this.state.apduToSend.dataIn} charsLength={30} maxLength={250} onChangeEvent={this.onChangeApduField} fieldName="dataIn" />
-                    <CustomTextField label="Le" text={this.state.apduToSend.le} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="Le" />
+                    <CustomTextField label="Lc" text={this.state.apduToSend.lc} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="Lc" onBlurEvent={this.onBlurApduField}/>
+                    <CustomTextField label="Data In" text={this.state.apduToSend.dataIn} charsLength={30} maxLength={250} onChangeEvent={this.onChangeApduField} fieldName="dataIn" onBlurEvent={this.onBlurApduField}/>
+                    <CustomTextField label="Le" text={this.state.apduToSend.le} charsLength={2} onChangeEvent={this.onChangeApduField} fieldName="Le" onBlurEvent={this.onBlurApduField}/>
                 </div>
                 <div>
                     <CustomButton text="Send Apdu" clickEvent={this.sendApdu} />
@@ -86,6 +87,37 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                 </div>
             </div>
         );
+    }
+
+    private onBlurApduField(event: React.FormEvent<HTMLInputElement>) {
+
+        const newHexString: string = Utilities.bytesToHexString([parseInt(event.currentTarget.value, 16)]).toUpperCase();
+
+        const apduToUpdate: IApduFormState = { ...this.state };
+        switch (event.currentTarget.name) {
+            case "cla":
+                apduToUpdate.apduToSend.cla = newHexString;
+                break;
+            case "ins":
+                apduToUpdate.apduToSend.ins = newHexString;
+                break;
+            case "P1":
+                apduToUpdate.apduToSend.p1 = newHexString;
+                break;
+            case "P2":
+                apduToUpdate.apduToSend.p2 = newHexString;
+                break;
+            case "Lc":
+                apduToUpdate.apduToSend.lc = newHexString;
+                break;
+            case "Le":
+                apduToUpdate.apduToSend.le = newHexString;
+                break;
+            case "dataIn":
+                apduToUpdate.apduToSend.dataIn = newHexString;
+                break;
+        }
+        this.setState(apduToUpdate);
     }
 
     private onChangeApduField(event: React.FormEvent<HTMLInputElement>) {
