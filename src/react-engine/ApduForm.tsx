@@ -81,8 +81,8 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                     <CustomButton text="Send Apdu" clickEvent={this.sendApdu} />
                 </div>
                 <div style={marginTopDivStyle}>
-                    <CustomTextField label="SW" text={this.state.apduResult.sw} charsLength={4} fieldName="SW" readOnly={true} />
-                    <CustomTextField label="Data Out" text={this.state.apduResult.dataOut} charsLength={30} fieldName="dataOut" readOnly={true} />
+                    <CustomTextField label="SW" text={this.state.apduResult.sw} charsLength={4} fieldName="SW" readOnly={true}/>
+                    <CustomTextField label="Data Out" text={this.state.apduResult.dataOut} charsLength={30} fieldName="dataOut" readOnly={true}/>
                 </div>
             </div>
         );
@@ -178,14 +178,12 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
         }
         const apduToUpdate: IApduFormState = { ...this.state };
         if (apduResult) {
-            apduToUpdate.apduResult.sw = Utilities.bytesToHexString(apduResult.SW);
-            apduToUpdate.apduResult.dataOut = Utilities.bytesToHexString(apduResult.Data);
+            apduToUpdate.apduResult.sw = Utilities.bytesToHexString(apduResult.SW).toUpperCase();
+            apduToUpdate.apduResult.dataOut = Utilities.bytesToHexString(apduResult.Data).toUpperCase();
         } else {
             apduToUpdate.apduResult.sw = "";
             apduToUpdate.apduResult.dataOut = err;
         }
         this.setState(apduToUpdate);
-
-        console.log(apduResult);
     }
 }
