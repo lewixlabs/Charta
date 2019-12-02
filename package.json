@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Dev tool for smartcard/pos developers",
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "tsc",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "start": "yarn run build && electron ./dist/main.js",
