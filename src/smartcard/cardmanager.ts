@@ -2,6 +2,7 @@ import { TsCard } from "tscard";
 import SmartCard, { CardEvent } from "tscard/cards/smartcard";
 import Reader, { Apdu, ApduResponse } from "tscard/reader";
 import Utilities from "tscard/utilities";
+import { Sle } from "tscard/cards/memorycard";
 
 
 export enum CardEvents {
@@ -27,10 +28,10 @@ export class CardManager {
     public static async openCardReader(): Promise<ICardManagerStatus> {
         try {
             const result: ICardManagerStatus = {
-             cardInfo: null,
-             isActive: this.cardManagerActive,
-             isCardInserted: false,
-             readerName: "No Reader Detected",
+                cardInfo: null,
+                isActive: this.cardManagerActive,
+                isCardInserted: false,
+                readerName: "No Reader Detected",
             };
 
             this.actualReader = await TsCard.instance.detectReader(5000);
@@ -43,7 +44,7 @@ export class CardManager {
             const [cardInserted, card] = await TsCard.instance.insertCard(3000);
             result.readerName = this.actualReader.name;
             result.isCardInserted = cardInserted;
-            if (cardInserted){
+            if (cardInserted) {
                 this.actualCard = card;
                 result.cardInfo = {
                     atr: Utilities.bytesToHexString(card.atr),
@@ -71,7 +72,7 @@ export class CardManager {
             this.actualCard = c;
 
             // tslint:disable-next-line: max-line-length
-            f(e === CardEvent.Inserted ? CardEvents.CardInserted : CardEvents.CardRemoved, { atr: atrDetected, cardType: isMemoryCardDetected ? "Memory Card" : "Chip Card"});
+            f(e === CardEvent.Inserted ? CardEvents.CardInserted : CardEvents.CardRemoved, { atr: atrDetected, cardType: isMemoryCardDetected ? "Memory Card" : "Chip Card" });
         });
     }
 
@@ -82,7 +83,7 @@ export class CardManager {
     public static async getCardInserted(f: (cardManagerEvent: ICardInfo) => void) {
 
         try {
-            const [a , card] = await TsCard.instance.insertCard(3000);
+            const [a, card] = await TsCard.instance.insertCard(3000);
             return f({
                 atr: "",
                 cardType: "Card Inserted",
@@ -101,6 +102,30 @@ export class CardManager {
         } catch (e) {
             return [null, e];
         }
+    }
+
+    public static async readMemoryCard(startPosition: number, bytesToRead: number): Promise<[boolean, number[]]> {
+
+        if (!this.actualCard || !this.actualCard.isMemoryCard)
+            throw new Error("No MemoryCard Detected");
+
+        if (!(this.actualCard instanceof Sle))
+            throw new Error("MemoryCard Not Supported");
+
+        const sleCard = this.actualCard as Sle;
+        return sleCard.readBytes(startPosition, bytesToRead);
+    }
+
+    public static async writeMemoryCard(startPosition: number, bufferToWrite: number[]): Promise<boolean> {
+
+        if (!this.actualCard || !this.actualCard.isMemoryCard)
+            throw new Error("No MemoryCard Detected");
+
+        if (!(this.actualCard instanceof Sle))
+            throw new Error("MemoryCard Not Supported");
+
+        const sleCard = this.actualCard as Sle;
+        return sleCard.writeBytes(startPosition, bufferToWrite);
     }
 
     private static cardManagerActive: boolean = false;
