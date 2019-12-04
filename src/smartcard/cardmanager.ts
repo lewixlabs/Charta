@@ -104,6 +104,18 @@ export class CardManager {
         }
     }
 
+    //#region Memory Cards
+
+    public static isSupportedMemoryCard(): boolean {
+        if (!this.actualCard)
+            return false;
+
+        if (!this.actualCard.isMemoryCard)
+            return false;
+
+        return this.actualCard instanceof Sle;
+    }
+
     public static async readMemoryCard(startPosition: number, bytesToRead: number): Promise<[boolean, number[]]> {
 
         if (!this.actualCard || !this.actualCard.isMemoryCard)
@@ -127,6 +139,7 @@ export class CardManager {
         const sleCard = this.actualCard as Sle;
         return sleCard.writeBytes(startPosition, bufferToWrite);
     }
+    //#endregion
 
     private static cardManagerActive: boolean = false;
     private static actualReader: Reader = null;

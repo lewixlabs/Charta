@@ -33,7 +33,6 @@ export class Charta extends React.Component<{}, ICardManagerStatus> {
 
     private async startCardOps() {
         const readerStatus: ICardManagerStatus = await CardManager.openCardReader();
-        // console.log(readerStatus);
 
         this.setState(readerStatus);
 

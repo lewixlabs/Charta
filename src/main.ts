@@ -8,7 +8,7 @@ function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     fullscreenable: false,
-    height: 450,
+    height: 480,
     // titleBarStyle: "hidden",
     resizable: false,
     webPreferences: {
