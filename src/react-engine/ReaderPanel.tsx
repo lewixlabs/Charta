@@ -9,7 +9,7 @@ export class ReaderPanel extends React.Component<IReaderProps> {
 
     public render() {
         return (
-            <CustomBox title="Reader Model" text={this.props.name}/>
+            <CustomBox title="Reader Model" text={this.props.name} backgroundColor="#3b3a39" color="darkgray"/>
         );
     }
 }

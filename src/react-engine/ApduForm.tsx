@@ -294,7 +294,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
         const apduToUpdate: IApduFormState = { ...this.state };
         apduToUpdate.apduResult.sw = readOK ? "9000" : "Error";
         if (readOK && bufferResult && bufferResult.length > 0)
-            apduToUpdate.apduResult.dataOut = Utilities.bytesToHexString(bufferResult);
+            apduToUpdate.apduResult.dataOut = Utilities.bytesToHexString(bufferResult).toUpperCase();
 
         this.setState(apduToUpdate);
     }
