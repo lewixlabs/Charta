@@ -7,6 +7,7 @@ let mainWindow: Electron.BrowserWindow;
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
+    autoHideMenuBar: true,
     fullscreenable: false,
     height: 500,
     // titleBarStyle: "hidden",
