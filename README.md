@@ -11,3 +11,9 @@ UI with ISO 7816 card
 
 UI with Memory Card
 ![charta](screenshots/mainscreenshot-memorycard.png)
+
+### Build
+> yarn
+
+### Run
+> yarn start
