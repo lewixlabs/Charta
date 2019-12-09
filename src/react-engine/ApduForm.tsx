@@ -208,7 +208,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                 P1: parseInt(this.state.apduToSend.p1, 16),
                 P2: parseInt(this.state.apduToSend.p2, 16),
                 // tslint:disable-next-line: object-literal-sort-keys
-                Lc: parseInt(this.state.apduToSend.lc, 16),
+                Lc: this.state.apduToSend.dataIn.length > 0 ? parseInt(this.state.apduToSend.lc, 16) : 0,
                 Le: parseInt(this.state.apduToSend.le, 16),
             },
             hexStringToByte(this.state.apduToSend.dataIn),
@@ -229,7 +229,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                         P1: parseInt(this.state.apduToSend.p1, 16),
                         P2: parseInt(this.state.apduToSend.p2, 16),
                         // tslint:disable-next-line: object-literal-sort-keys
-                        Lc: parseInt(this.state.apduToSend.lc, 16),
+                        Lc: this.state.apduToSend.dataIn.length > 0 ? parseInt(this.state.apduToSend.lc, 16) : 0,
                         Le: 250, // retry with valued le
                     },
                     hexStringToByte(this.state.apduToSend.dataIn),
