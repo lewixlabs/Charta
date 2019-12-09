@@ -141,7 +141,8 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                 apduToUpdate.apduToSend.le = newHexString;
                 break;
             case "dataIn":
-                apduToUpdate.apduToSend.dataIn = newHexString;
+                if (event.currentTarget.value.length > 0 && event.currentTarget.value.length % 2 !== 0)
+                    apduToUpdate.apduToSend.dataIn = event.currentTarget.value.substr(0, event.currentTarget.value.length - 1) + "0" + event.currentTarget.value[event.currentTarget.value.length - 1];
                 break;
         }
         this.setState(apduToUpdate);
