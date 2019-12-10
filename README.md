@@ -16,13 +16,13 @@ UI with Memory Card
 
 #### *on linux only*
 *make sure to install pcsclite dependencies*
-> apt install libpcsclite1 libpcsclite-dev
+  apt install libpcsclite1 libpcsclite-dev
 
-> git clone https://github.com/lewixlabs/Charta.git
+  git clone https://github.com/lewixlabs/Charta.git
 
-> cd charta
+  cd charta
 
-> yarn
+  yarn
 
 ### Run
-> yarn start
+  yarn start
