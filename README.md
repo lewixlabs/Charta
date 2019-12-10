@@ -12,17 +12,17 @@ UI with ISO 7816 card
 UI with Memory Card
 ![charta](screenshots/mainscreenshot-memorycard.png)
 
-### Build
+#### Prerequisites (*linux only*)
 
-#### *on linux only*
-*make sure to install pcsclite dependencies*
-  apt install libpcsclite1 libpcsclite-dev
+    apt install libpcsclite1 libpcsclite-dev
 
-  git clone https://github.com/lewixlabs/Charta.git
+#### Build
+    git clone https://github.com/lewixlabs/Charta.git
 
-  cd charta
+    cd charta
 
-  yarn
+    yarn
 
-### Run
-  yarn start
+#### Run
+    yarn start
+
