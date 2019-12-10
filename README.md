@@ -1,6 +1,6 @@
 # Charta 💳
 ## Dev tool for smartcard/pos developers
-### Charta is a cross platform app which helps developers/testers to interact with chip cards and send Apdus
+### Charta is a cross platform app which helps developers/testers to interact with chip cards and send apdus
 
 Smartcards supported:
 - ISO 7816 (e.g. emv cards, Italian CRS/CNS cards, etc)
@@ -13,13 +13,14 @@ UI with Memory Card
 ![charta](screenshots/mainscreenshot-memorycard.png)
 
 ### Build
-> git clone https://github.com/lewixlabs/Charta.git
-
-> cd charta
 
 #### *on linux only*
 *make sure to install pcsclite dependencies*
->> apt install libpcsclite1 libpcsclite-dev
+> apt install libpcsclite1 libpcsclite-dev
+
+> git clone https://github.com/lewixlabs/Charta.git
+
+> cd charta
 
 > yarn
 
