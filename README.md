@@ -13,6 +13,14 @@ UI with Memory Card
 ![charta](screenshots/mainscreenshot-memorycard.png)
 
 ### Build
+> git clone https://github.com/lewixlabs/Charta.git
+
+> cd charta
+
+#### *on linux only*
+*make sure to install pcsclite dependencies*
+>> apt install libpcsclite1 libpcsclite-dev
+
 > yarn
 
 ### Run
