@@ -1,8 +1,8 @@
 import { TsCard } from "tscard";
+import { PINStatus, Sle } from "tscard/cards/memorycard";
 import SmartCard, { CardEvent } from "tscard/cards/smartcard";
 import Reader, { Apdu, ApduResponse } from "tscard/reader";
 import Utilities from "tscard/utilities";
-import { Sle } from "tscard/cards/memorycard";
 
 
 export enum CardEvents {
@@ -139,6 +139,19 @@ export class CardManager {
         const sleCard = this.actualCard as Sle;
         return sleCard.writeBytes(startPosition, bufferToWrite);
     }
+
+    public static async verifyPSC(pinBuffer: number[]): Promise<[PINStatus, number]> {
+
+        if (!this.actualCard || !this.actualCard.isMemoryCard)
+            throw new Error("No MemoryCard Detected");
+
+        if (!(this.actualCard instanceof Sle))
+            throw new Error("MemoryCard Not Supported");
+
+        const currentSle: Sle = this.actualCard;
+        return await currentSle.verifyPIN(pinBuffer);
+    }
+
     //#endregion
 
     private static cardManagerActive: boolean = false;
