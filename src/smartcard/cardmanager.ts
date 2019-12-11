@@ -1,5 +1,5 @@
 import { TsCard } from "tscard";
-import { PINStatus, Sle } from "tscard/cards/memorycard";
+import { PINStatus, Sle, MemoryCardTypes } from "tscard/cards/memorycard";
 import SmartCard, { CardEvent } from "tscard/cards/smartcard";
 import Reader, { Apdu, ApduResponse } from "tscard/reader";
 import Utilities from "tscard/utilities";
@@ -13,6 +13,7 @@ export enum CardEvents {
 export interface ICardInfo {
     atr: string;
     cardType: string;
+    memoryCardDetails: string;
 }
 
 export interface ICardManagerStatus {
@@ -45,10 +46,18 @@ export class CardManager {
             result.readerName = this.actualReader.name;
             result.isCardInserted = cardInserted;
             if (cardInserted) {
+
+                let sleDetails: string = "";
                 this.actualCard = card;
+                if (this.actualCard instanceof Sle) {
+                    const sleCard = this.actualCard as Sle;
+                    sleDetails = sleCard.type == MemoryCardTypes.SLE5528 ? "SLEXX28" : "SLEXX42";
+                }
+
                 result.cardInfo = {
                     atr: Utilities.bytesToHexString(card.atr),
                     cardType: card.isMemoryCard ? "Memory Card" : "Chip Card",
+                    memoryCardDetails: sleDetails,
                 };
             }
             result.isActive = this.cardManagerActive;
@@ -71,29 +80,19 @@ export class CardManager {
             const isMemoryCardDetected: boolean = c !== null ? c.isMemoryCard : false;
             this.actualCard = c;
 
+            let sleDetails: string = "";
+            if (this.actualCard instanceof Sle) {
+                const sleCard = this.actualCard as Sle;
+                sleDetails = sleCard.type == MemoryCardTypes.SLE5528 ? "SLEXX28" : "SLEXX42";
+            }
+
             // tslint:disable-next-line: max-line-length
-            f(e === CardEvent.Inserted ? CardEvents.CardInserted : CardEvents.CardRemoved, { atr: atrDetected, cardType: isMemoryCardDetected ? "Memory Card" : "Chip Card" });
+            f(e === CardEvent.Inserted ? CardEvents.CardInserted : CardEvents.CardRemoved, { atr: atrDetected, cardType: isMemoryCardDetected ? "Memory Card" : "Chip Card", memoryCardDetails: sleDetails });
         });
     }
 
     public static closeCardReader() {
         TsCard.instance.close();
-    }
-
-    public static async getCardInserted(f: (cardManagerEvent: ICardInfo) => void) {
-
-        try {
-            const [a, card] = await TsCard.instance.insertCard(3000);
-            return f({
-                atr: "",
-                cardType: "Card Inserted",
-            });
-        } catch (e) {
-            return ({
-                atr: "",
-                cardType: e,
-            });
-        }
     }
 
     public static async sendApdu(apdu: Apdu, dataIn: number[]): Promise<[ApduResponse, string]> {
