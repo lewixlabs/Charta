@@ -12,6 +12,7 @@ function createWindow() {
     height: 500,
     // titleBarStyle: "hidden",
     resizable: false,
+    title: `Charta v${app.getVersion()}`,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },

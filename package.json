@@ -1,6 +1,6 @@
 {
   "name": "electron-quick-start-typescript",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Dev tool for smartcard/pos developers",
   "scripts": {
     "build": "tsc",
@@ -42,6 +42,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "tscard": "^0.9.4"
+    "tscard": "^0.9.5"
   }
 }
