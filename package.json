@@ -17,7 +17,7 @@
       "category": "public.app-category.developer-tools"
     }
   },
-  "repository": "https://github.com/electron/ert-app",
+  "repository": "https://github.com/lewixlabs/charta",
   "keywords": [
     "electorn",
     "typescript",
