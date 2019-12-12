@@ -12,6 +12,11 @@ UI with ISO 7816 card
 UI with Memory Card
 ![charta](screenshots/mainscreenshot-memorycard.png)
 
+### Binary releases
+https://github.com/lewixlabs/Charta/releases/latest
+
+### Build from source code
+
 #### Prerequisites (*linux only*)
 
     apt install libpcsclite1 libpcsclite-dev
