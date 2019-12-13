@@ -12,8 +12,8 @@ UI with ISO 7816 card
 UI with Memory Card
 ![charta](screenshots/mainscreenshot-memorycard.png)
 
-### Binary releases
-https://github.com/lewixlabs/Charta/releases/latest
+### Binary release
+[Download here for windows/macOS/linux](https://github.com/lewixlabs/Charta/releases/latest)
 
 ### Build from source code
 
