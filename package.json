@@ -1,7 +1,7 @@
 {
   "name": "charta",
   "main": "./dist/main.js",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Dev tool for smartcard/pos developers",
   "scripts": {
     "build": "tsc --build -clean && tsc",
@@ -13,6 +13,9 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "build": {
+    "directories": {
+      "output": "electron-builder-dist"
+    },
     "files": [
       "./src/index.html",
       "./dist/*.js",
@@ -23,6 +26,18 @@
     "appId": "dev.llabs.charta",
     "mac": {
       "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": "appx",
+      "icon": "credit-card.png"
+    },
+    "appx": {      
+      "backgroundColor": "#242424",
+      "displayName": "Charta",
+      "publisherDisplayName": "lewix.labs",
+      "publisher": "XXXXXXXXXXXXXX",
+      "identityName": "YYYYYYYYYYYYYYY",
+      "applicationId": "lewix.labs.Charta"
     }
   },
   "repository": "https://github.com/lewixlabs/charta",
@@ -34,7 +49,7 @@
     "vscode",
     "debug"
   ],
-  "author": "GitHub",
+  "author": "llabs",
   "license": "MIT",
   "devDependencies": {
     "electron": "^7.1.2",

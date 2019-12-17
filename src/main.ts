@@ -9,7 +9,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     autoHideMenuBar: true,
     fullscreenable: false,
-    height: 500,
+    height: 520,
     // titleBarStyle: "hidden",
     resizable: false,
     title: `Charta v${app.getVersion()}`,
