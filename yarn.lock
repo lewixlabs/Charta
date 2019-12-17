@@ -2156,10 +2156,10 @@ truncate-utf8-bytes@^1.0.0:
   dependencies:
     utf8-byte-length "^1.0.1"
 
-tscard@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/tscard/-/tscard-1.0.0.tgz#2639acd4cefc11f16fbf1bebd253fc168e2e5174"
-  integrity sha512-aVVvzegje6ZpTFQy6CZAQqe5BBjz9+ncEqBR/02L8QbxVcB+WHM4U4rysJIHF/xIb8oAK+VxYGoehAgHVsKhew==
+tscard@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/tscard/-/tscard-1.0.2.tgz#39ccf8602985f4e01dc22657c8cfd21999fdea0d"
+  integrity sha512-jiGWTxf7f2GP0WLmckLLdh3A+1hKgy5+VPFNw5oQMWIIWToAIq4FVfC5jfkZhPo+AVuHeBG2K7tv6a0kTLx9LQ==
   dependencies:
     "@types/buffers" "^0.1.31"
     events "^3.0.0"
