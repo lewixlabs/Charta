@@ -14,18 +14,21 @@
   },
   "build": {
     "directories": {
-      "output": "electron-builder-dist"
+      "output": "electron-builder-dist",
+      "buildResources": "build"
     },
     "files": [
       "./src/index.html",
       "./dist/*.js",
       "./dist/smartcard/*.js",
       "./dist/react-engine/*.js",
-      "./dist/react-engine/chartaui/*.js"
+      "./dist/react-engine/chartaui/*.js",
+      "./build/*.icns"
     ],
     "appId": "dev.llabs.charta",
     "mac": {
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "icon": "./build/mac.icns"
     },
     "win": {
       "target": "appx",
