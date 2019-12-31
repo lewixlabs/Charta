@@ -13,6 +13,9 @@ UI with Memory Card
 ![charta](screenshots/mainscreenshot-memorycard.png)
 
 ### Binary release
+For Windows you can install official app
+<a href='//www.microsoft.com/store/apps/9P6LFW09T9JC?cid=storebadge&ocid=badge'><img src='https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png' alt='English badge' style='width: 284px; height: 104px;'/></a>
+
 [Download here for windows/macOS/linux](https://github.com/lewixlabs/Charta/releases/latest)
 
 ### Build from source code
