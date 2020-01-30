@@ -35,7 +35,7 @@ export const CustomTextField: React.FC<ITextFieldProps> = (props: ITextFieldProp
                 style={textFieldStyle}
                 width={props.charsLength * 15}
                 size="15"
-                maxLength={props.maxLength === undefined ? 2 : props.maxLength}
+                maxLength={props.maxLength === undefined ? 2048 : props.maxLength}
                 // label={props.label}
                 // rounded="5"
                 // placeholder="My Input"

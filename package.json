@@ -1,7 +1,7 @@
 {
   "name": "charta",
   "main": "./dist/main.js",
-  "version": "1.0.9",
+  "version": "1.0.12",
   "description": "Dev tool for smartcard/pos developers",
   "scripts": {
     "build": "tsc --build -clean && tsc",

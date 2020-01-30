@@ -111,7 +111,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                     <CustomButton text="Read Bytes" clickEvent={this.readBytes} color="#009999" />
                 </div>
                 <div hidden={!CardManager.isSupportedMemoryCard()}>
-                    <CustomTextField label="Data In" text={this.state.memoryWriteBuffer} charsLength={30} maxLength={250} onChangeEvent={this.onChangeMemoryCardField} fieldName="dataInMemory" onBlurEvent={this.onBlurMemoryCardField} />
+                    <CustomTextField label="Data In" text={this.state.memoryWriteBuffer} charsLength={30} onChangeEvent={this.onChangeMemoryCardField} fieldName="dataInMemory" onBlurEvent={this.onBlurMemoryCardField} />
                     <CustomButton text="Write Bytes" clickEvent={this.writeBytes} color="#d15234" />
                 </div>
                 <div hidden={!CardManager.isSupportedMemoryCard()}>
@@ -323,6 +323,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
 
         const apduToUpdate: IApduFormState = { ...this.state };
         apduToUpdate.apduResult.sw = writeOK ? "9000" : "Error";
+        apduToUpdate.apduResult.dataOut = writeOK ? "WRITE OK" : "WRITE ERROR";
 
         this.setState(apduToUpdate);
     }
