@@ -129,7 +129,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
 
     private onBlurApduField(event: React.FormEvent<HTMLInputElement>) {
 
-        const newHexString: string = Utilities.bytesToHexString([parseInt(event.currentTarget.value, 16)]).toUpperCase();
+        const newHexString: string = Utilities.bytesToHexString([parseInt(event.currentTarget.value === "" ? "00" : event.currentTarget.value, 16)]).toUpperCase();
 
         const apduToUpdate: IApduFormState = { ...this.state };
         switch (event.currentTarget.name) {
@@ -220,6 +220,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                  * macOS workaround (but found in windows too)
                  * https://ludovicrousseau.blogspot.com/2017/03/macos-sierra-bug-scardtransmit-silently.html 
                 */
+                const originalLe: number = parseInt(this.state.apduToSend.le, 16);
                 [apduResult, err] = await CardManager.sendApdu(
                     {
                         Cla: parseInt(this.state.apduToSend.cla, 16),
@@ -232,6 +233,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                     },
                     Utilities.hexStringToBytes(this.state.apduToSend.dataIn),
                 );
+                apduResult.Data = apduResult.Data.slice(0, originalLe);
             }
         }
         const apduToUpdate: IApduFormState = { ...this.state };
