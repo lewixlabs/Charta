@@ -67,7 +67,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-desktop": "^0.3.9",
-    "react-dom": "^16.12.0",
+    "react-dom": "^16.13.0",
     "tscard": "^1.0.2"
   }
 }
