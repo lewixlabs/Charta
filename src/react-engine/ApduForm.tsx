@@ -1,6 +1,6 @@
 import CSS from "csstype";
 import React from "react";
-import { PINStatus } from "tscard/cards/memorycard";
+import { MemoryCardTypes, PINStatus } from "tscard/cards/memorycard";
 import Utilities from "tscard/utilities";
 import { CardManager } from "../smartcard/cardmanager";
 import { CustomButton } from "./chartaui/CustomButton";
@@ -73,6 +73,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
         this.readBytes = this.readBytes.bind(this);
         this.writeBytes = this.writeBytes.bind(this);
         this.verifyPSC = this.verifyPSC.bind(this);
+        this.updatePSC = this.updatePSC.bind(this);
         this.onChangeMemoryCardField = this.onChangeMemoryCardField.bind(this);
         this.onBlurMemoryCardField = this.onBlurMemoryCardField.bind(this);
     }
@@ -117,6 +118,7 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
                 <div hidden={!CardManager.isSupportedMemoryCard()}>
                     <CustomTextField label="PSC Data" text={this.state.memoryPscData} charsLength={6} maxLength={6} onChangeEvent={this.onChangeMemoryCardField} fieldName="psc" onBlurEvent={this.onBlurMemoryCardField} />
                     <CustomButton text="Verify PSC" clickEvent={this.verifyPSC} color="#FBC02D" />
+                    <CustomButton text="Update PSC" clickEvent={this.updatePSC} color="#8633FF" hiddenStatus={!CardManager.isSupportedMemoryCard() || CardManager.getMemoryCardType() != MemoryCardTypes.SLE5542} />
                 </div>
 
                 <div style={marginTopDivStyle}>
@@ -357,4 +359,14 @@ export class ApduForm extends React.Component<IApduFormProps, IApduFormState> {
         this.setState(apduToUpdate);
     }
 
+    private async updatePSC() {
+
+        const writeOK: boolean = await CardManager.updatePSC(Utilities.hexStringToBytes(this.state.memoryPscData));
+
+        const apduToUpdate: IApduFormState = { ...this.state };
+        apduToUpdate.apduResult.sw = writeOK ? "9000" : "Error";
+        apduToUpdate.apduResult.dataOut = writeOK ? "UPDATE PSC OK" : "UPDATE PSC ERROR";
+
+        this.setState(apduToUpdate);
+    }
 }

@@ -115,6 +115,18 @@ export class CardManager {
         return this.actualCard instanceof Sle;
     }
 
+    public static getMemoryCardType(): MemoryCardTypes {
+        if (!this.actualCard)
+            return null;
+
+        if (!this.actualCard.isMemoryCard)
+            return null;
+
+        const currentSle: Sle = this.actualCard as Sle;
+        return currentSle.type;
+    }
+
+
     public static async readMemoryCard(startPosition: number, bytesToRead: number): Promise<[boolean, number[]]> {
 
         if (!this.actualCard || !this.actualCard.isMemoryCard)
@@ -149,6 +161,18 @@ export class CardManager {
 
         const currentSle: Sle = this.actualCard;
         return await currentSle.verifyPIN(pinBuffer);
+    }
+
+    public static async updatePSC(pinBufferToUpdate: number[]): Promise<boolean> {
+
+        if (!this.actualCard || !this.actualCard.isMemoryCard)
+            throw new Error("No MemoryCard Detected");
+
+        if (!(this.actualCard instanceof Sle))
+            throw new Error("MemoryCard Not Supported");
+
+        const sleCard = this.actualCard as Sle;
+        return sleCard.changePIN(pinBufferToUpdate);
     }
 
     //#endregion

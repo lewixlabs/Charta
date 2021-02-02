@@ -12,9 +12,13 @@ interface IButtonProps {
     text: string;
     clickEvent: () => void;
     color: string;
+    hiddenStatus?: boolean;
 }
 
 export const CustomButton: React.FC<IButtonProps> = (props: IButtonProps) => {
+    if (props.hiddenStatus)
+        return (<div></div>);
+
     return (
         <div style={textFieldStyle}>
             <Button color={props.color} onClick={props.clickEvent}>
