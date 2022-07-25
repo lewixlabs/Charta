@@ -34,7 +34,7 @@
       "target": "appx",
       "icon": "credit-card.png"
     },
-    "appx": {      
+    "appx": {
       "backgroundColor": "#242424",
       "displayName": "Charta",
       "publisherDisplayName": "lewix.labs",
@@ -55,9 +55,9 @@
   "author": "llabs",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^7.2.4",
-    "electron-builder": "^21.2.0",
-    "electron-rebuild": "^1.10.0",
+    "electron": "^19.0.9",
+    "electron-builder": "^23.1.0",
+    "electron-rebuild": "^3.2.8",
     "tslint": "^5.19.0",
     "typescript": "^3.8.3"
   },
@@ -68,6 +68,6 @@
     "react": "^16.13.0",
     "react-desktop": "^0.3.9",
     "react-dom": "^16.13.0",
-    "tscard": "^1.0.3"
+    "tscard": "^1.0.5"
   }
 }

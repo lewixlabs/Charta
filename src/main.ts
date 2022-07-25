@@ -1,3 +1,9 @@
+/*
+**** TEMPORARY MANUAL FIX FOR NODE-PCSCLITE ********************************
+https://github.com/santigimeno/node-pcsclite/pull/96/files
+****************************************************************************
+*/
+
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
 import { CardManager } from "./smartcard/cardmanager";
@@ -5,6 +11,7 @@ import { CardManager } from "./smartcard/cardmanager";
 let mainWindow: Electron.BrowserWindow;
 
 function createWindow() {
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     autoHideMenuBar: true,
