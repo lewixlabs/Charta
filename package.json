@@ -55,7 +55,7 @@
   "author": "llabs",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^19.0.9",
+    "electron": "^19.0.11",
     "electron-builder": "^23.1.0",
     "electron-rebuild": "^3.2.8",
     "tslint": "^5.19.0",
