@@ -1,7 +1,7 @@
 {
   "name": "charta",
   "main": "./dist/main.js",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Dev tool for smartcard/pos developers",
   "scripts": {
     "build": "tsc --build -clean && tsc",
@@ -27,6 +27,13 @@
     ],
     "appId": "dev.llabs.charta",
     "mac": {
+    "target": {
+      "target": "default",
+      "arch": [
+        "x64",
+        "arm64"
+      ]
+    },
       "category": "public.app-category.developer-tools",
       "icon": "./build/mac.icns"
     },
