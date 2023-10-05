@@ -62,7 +62,7 @@
   "author": "llabs",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^19.1.8",
+    "electron": "^22.3.25",
     "electron-builder": "^23.1.0",
     "electron-rebuild": "^3.2.8",
     "tslint": "^5.19.0",
