@@ -65,7 +65,7 @@
     "electron": "^22.3.25",
     "electron-builder": "^23.1.0",
     "electron-rebuild": "^3.2.9",
-    "node-gyp": "^10.0.1",
+    "node-gyp": "^9.0.0",
     "tslint": "^5.19.0",
     "typescript": "^3.8.3"
   },
