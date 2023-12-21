@@ -15,6 +15,9 @@ jobs:
       with:
         node-version: 14
 
+    - name: Install system dependencies
+      run: sudo apt install libpcsclite1 libpcsclite-dev
+
     - name: Install dependencies
       run: yarn install
 
