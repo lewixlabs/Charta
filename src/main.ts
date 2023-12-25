@@ -22,9 +22,12 @@ function createWindow() {
     title: `Charta v${app.getVersion()}`,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      // https://github.com/electron/forge/issues/2931#issuecomment-1239979945
+      sandbox: false,
     },
     width: 650,
   });
+
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "../src/index.html"));
