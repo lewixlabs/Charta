@@ -1066,10 +1066,10 @@ electron-publish@23.0.9:
     lazy-val "^1.0.5"
     mime "^2.5.2"
 
-electron-rebuild@^3.2.8:
-  version "3.2.8"
-  resolved "https://registry.npmjs.org/electron-rebuild/-/electron-rebuild-3.2.8.tgz"
-  integrity sha512-+U/G5ZH9RNfvPQsEHevC3yDlgSB+wliNXnG6haqUeZBEq061pEgSTWK9ZBEfqMEq+PKxvniMNxfou/h6079s3A==
+electron-rebuild@^3.2.9:
+  version "3.2.9"
+  resolved "https://registry.yarnpkg.com/electron-rebuild/-/electron-rebuild-3.2.9.tgz#ea372be15f591f8d6d978ee9bca6526dadbcf20f"
+  integrity sha512-FkEZNFViUem3P0RLYbZkUjC8LUFIK+wKq09GHoOITSJjfDAVQv964hwaNseTTWt58sITQX3/5fHNYcTefqaCWw==
   dependencies:
     "@malept/cross-spawn-promise" "^2.0.0"
     chalk "^4.0.0"
@@ -1580,9 +1580,9 @@ inline-style-prefixer@^2.0.5:
     hyphenate-style-name "^1.0.1"
 
 ip@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/ip/-/ip-2.0.0.tgz"
-  integrity sha512-WKa+XuLG1A1R0UWhl2+1XQSi+fZWMsYKffMZTTYsiZaUD8k2yDAj5atimTUD2TZkyCkNEeYE5NhFZmupOGtjYQ==
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ip/-/ip-2.0.1.tgz#e8f3595d33a3ea66490204234b77636965307105"
+  integrity sha512-lJUL9imLTNi1ZfXT+DU6rBBdbiKGBuay9B6xGSPVjUeQwaH1RIGqef8RZkUtHioLmSNpPR5M4HVKJGm1j8FWVQ==
 
 is-ci@^2.0.0:
   version "2.0.0"
