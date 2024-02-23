@@ -48,6 +48,10 @@
       "publisher": "XXXXXXXXXXXXXX",
       "identityName": "YYYYYYYYYYYYYYY",
       "applicationId": "lewix.labs.Charta"
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "icon": "credit-card.png"
     }
   },
   "repository": "https://github.com/lewixlabs/charta",
@@ -62,7 +66,10 @@
     "vscode",
     "debug"
   ],
-  "author": "llabs",
+  "author": {
+    "name": "lewix",
+    "email": "lewixlabs@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.15.0",
