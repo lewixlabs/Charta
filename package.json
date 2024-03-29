@@ -1,7 +1,7 @@
 {
   "name": "charta",
   "main": "./dist/main.js",
-  "version": "1.0.16",
+  "version": "1.0.21",
   "description": "Dev tool for smartcard/pos developers",
   "scripts": {
     "build": "tsc --build -clean && tsc",
@@ -27,13 +27,13 @@
     ],
     "appId": "dev.llabs.charta",
     "mac": {
-    "target": {
-      "target": "default",
-      "arch": [
-        "x64",
-        "arm64"
-      ]
-    },
+      "target": {
+        "target": "default",
+        "arch": [
+          "x64",
+          "arm64"
+        ]
+      },
       "category": "public.app-category.developer-tools",
       "icon": "./build/mac.icns"
     },
@@ -48,34 +48,45 @@
       "publisher": "XXXXXXXXXXXXXX",
       "identityName": "YYYYYYYYYYYYYYY",
       "applicationId": "lewix.labs.Charta"
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "icon": "credit-card.png"
     }
   },
   "repository": "https://github.com/lewixlabs/charta",
   "keywords": [
-    "electorn",
+    "smartcard",
+    "apdu",
+    "pos",
+    "electron",
     "typescript",
     "react",
     "boilerplate",
     "vscode",
     "debug"
   ],
-  "author": "llabs",
+  "author": {
+    "name": "lewix",
+    "email": "lewixlabs@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
-    "electron": "^22.3.25",
-    "electron-builder": "^23.1.0",
-    "electron-rebuild": "^3.2.9",
-    "node-gyp": "^9.0.0",
-    "tslint": "^5.19.0",
-    "typescript": "^3.8.3"
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",
+    "eslint": "^8.56.0",
+    "node-gyp": "^10.0.1",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.9.5",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
     "react-desktop": "^0.3.9",
-    "react-dom": "^16.13.0",
-    "tscard": "^1.0.5"
+    "react-dom": "^18.2.0",
+    "tscard": "^1.0.6"
   }
 }
