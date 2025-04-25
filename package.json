@@ -4,7 +4,7 @@
   "version": "1.0.21",
   "description": "Dev tool for smartcard/pos developers",
   "scripts": {
-    "build": "tsc --build -clean && tsc",
+    "build": "tsc --build --clean && tsc",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "start": "yarn run build && electron ./dist/main.js",
@@ -50,7 +50,9 @@
       "applicationId": "lewix.labs.Charta"
     },
     "linux": {
-      "target": ["AppImage"],
+      "target": [
+        "AppImage"
+      ],
       "icon": "credit-card.png"
     }
   },
@@ -58,13 +60,7 @@
   "keywords": [
     "smartcard",
     "apdu",
-    "pos",
-    "electron",
-    "typescript",
-    "react",
-    "boilerplate",
-    "vscode",
-    "debug"
+    "pos"
   ],
   "author": {
     "name": "lewix",
@@ -72,21 +68,21 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
-    "@typescript-eslint/parser": "^6.15.0",
-    "electron": "^28.1.0",
-    "electron-builder": "^24.9.1",
-    "eslint": "^8.56.0",
-    "node-gyp": "^10.0.1",
-    "typescript": "^5.3.3"
+    "@types/react": "16.14.0",
+    "@types/react-dom": "^16.9.25",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "@typescript-eslint/parser": "^8.31.0",
+    "electron": "^35.2.1",
+    "electron-builder": "^26.0.12",
+    "eslint": "^9.25.1",
+    "node-gyp": "^11.2.0",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
     "prop-types": "^15.8.1",
-    "react": "^18.2.0",
+    "react": "^16.14.0",
     "react-desktop": "^0.3.9",
-    "react-dom": "^18.2.0",
+    "react-dom": "^16.14.0",
     "tscard": "^1.0.8"
   }
 }
