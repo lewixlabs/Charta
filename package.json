@@ -7,7 +7,7 @@
     "build": "tsc --build --clean && tsc",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "yarn run build && electron ./dist/main.js",
+    "start": "electron ./dist/main.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
