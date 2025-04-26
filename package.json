@@ -1,7 +1,7 @@
 {
   "name": "charta",
   "main": "./dist/main.js",
-  "version": "1.0.21",
+  "version": "1.0.25",
   "description": "Dev tool for smartcard/pos developers",
   "scripts": {
     "build": "tsc --build --clean && tsc",
@@ -83,6 +83,6 @@
     "react": "^16.14.0",
     "react-desktop": "^0.3.9",
     "react-dom": "^16.14.0",
-    "tscard": "^1.0.8"
+    "tscard": "^1.0.10"
   }
 }
