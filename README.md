@@ -25,12 +25,14 @@ For Windows 10 you can install official app
 
     apt install libpcsclite1 libpcsclite-dev
 
-#### Build
+#### Install dependencies and build
     git clone https://github.com/lewixlabs/Charta.git
 
     cd charta
 
     yarn
+
+    yarn build
 
 #### Run
     yarn start
