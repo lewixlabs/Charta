@@ -72,7 +72,7 @@
     "@types/react-dom": "^16.9.25",
     "@typescript-eslint/eslint-plugin": "^8.31.0",
     "@typescript-eslint/parser": "^8.31.0",
-    "electron": "^35.2.1",
+    "electron": "^35.7.5",
     "electron-builder": "^26.0.12",
     "eslint": "^9.25.1",
     "node-gyp": "^11.2.0",
